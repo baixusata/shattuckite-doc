@@ -1,3 +1,9 @@
+if [ ! -d Team105 ]
+then
+     git clone --depth=5 git@github.com:sebuaa2019/Team105.git;
+fi
+
+cd build
 path=$1
 head1="shattuckite*SDP*.pdf"
 head2="shattuckite*PRD*.pdf"
@@ -20,7 +26,7 @@ do
  fi
 done
 
-cd Team105
+cd ../Team105
 path=$1
 head1="设计文档*"
 head2="项目计划书*"
@@ -38,7 +44,7 @@ do
 		echo sdd_compare
 	else
 		rm ./${filename}
-		cp ../${sdd} ./"设计文档-"${sdd#*-}
+		cp ../build/${sdd} ./"设计文档-"${sdd#*-}
 	fi
  elif [ ${filename} = ${head2} ]
  then
@@ -50,7 +56,7 @@ do
 		echo sdp_compare
 	else
 		rm ./${filename}
-		cp ../${sdp} ./"项目计划书-"${sdp#*-}
+		cp ../build/${sdp} ./"项目计划书-"${sdp#*-}
 	fi
  elif [ ${filename} = ${head3} ]
  then
@@ -62,7 +68,7 @@ do
 		echo prd_compare
 	else
 		rm ./${filename}
-		cp ../${prd} ./"需求文档-"${prd#*-}
+		cp ../build/${prd} ./"需求文档-"${prd#*-}
 	fi
  fi
 done
