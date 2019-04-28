@@ -8,6 +8,8 @@ pipeline {
   stages{
     stage('Build') {
       steps {
+        sh 'git remote set-url origin https://baixusata:a1216573454@github.com/baixusata/shattuckite-doc.git'
+        sh 'git branch --set-upstream-to=origin/master1 master1'
         sh ''' 
         git pull --tags;
         umask 000;
