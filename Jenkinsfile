@@ -19,10 +19,20 @@ pipeline {
         '''
       }
     }
-    // stage('DeployToGIT') {
-    // }
+    stage('DeployToGIT') {
+      when{
+        branch 'master'
+      }
+      steps{
+        sh 'chmod a+x ./deployTools/deployToGIT.sh'
+        sh './deployTools/deployToGIT.sh'
+      }
+    }
 
     stage('DeployToWebServer') {
+      when{
+        branch 'master'
+      }
       steps{
         sh 'chmod a+x ./deployTools/deployToServer.sh'
         sh './deployTools/deployToServer.sh'
