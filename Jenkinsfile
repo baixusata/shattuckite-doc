@@ -22,6 +22,9 @@ pipeline {
       }
     }
     stage('DeployToGIT') {
+      when{
+        branch 'master'
+      }
       steps{
         sh 'chmod a+x ./deployTools/deployToGIT.sh'
         sh './deployTools/deployToGIT.sh'
@@ -29,6 +32,9 @@ pipeline {
     }
 
     stage('DeployToWebServer') {
+      when{
+        branch 'master'
+      }
       steps{
         sh 'chmod a+x ./deployTools/deployToServer.sh'
         sh './deployTools/deployToServer.sh'
