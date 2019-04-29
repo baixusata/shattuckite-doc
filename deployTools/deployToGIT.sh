@@ -1,6 +1,6 @@
 if [ ! -d Team105 ]
 then
-     git clone --depth=5 git@github.com:sebuaa2019/Team105.git;
+     git clone --depth=5 git@github.com:sebuaa2019/Team105.git
 fi
 
 cd build
@@ -72,6 +72,21 @@ do
 	fi
  fi
 done
+
+if [ ! ${sdd_old_hash} ]
+then
+	cp ../build/${sdd} ./"设计文档-"${sdd#*-}
+fi
+
+if [ ! ${sdp_old_hash} ]
+then
+	cp ../build/${sdp} ./"项目计划书-"${sdp#*-}
+fi
+
+if [ ! ${prd_old_hash} ]
+then
+	cp ../build/${prd} ./"需求文档-"${prd#*-}
+fi
 
 git add -A
 echo auto CI build >/tmp/message
