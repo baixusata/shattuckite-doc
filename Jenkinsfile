@@ -27,6 +27,7 @@ pipeline {
         branch 'master'
       }
       steps{
+        sh 'pwd'
         sh 'chmod a+x ./deployTools/deployToGIT.sh'
         sh './deployTools/deployToGIT.sh'
       }
@@ -37,6 +38,7 @@ pipeline {
         branch 'master'
       }
       steps{
+        sh 'pwd'
         sh 'chmod a+x ./deployTools/deployToServer.sh'
         sh './deployTools/deployToServer.sh'
       }
